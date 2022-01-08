@@ -1,6 +1,9 @@
 ###
 # Var
 timeout='1h'
+safe_user_name='ubuntu'
+echo "Please enter a password for safe(normal) user:"
+safe_user_passwd=$(read)
 
 ###
 # Dependence
@@ -10,6 +13,8 @@ apt update
 apt --fix-broken install
 apt upgrade -y
 
+###
+# Enable ufw
 apt install ufw -y
 ufw default deny
 ufw allow 22/tcp
@@ -21,6 +26,17 @@ ufw enable
 curl -fsSL https://get.docker.com | bash -s docker
 # If your instance is in China, use this mirror instead:
 # curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+
+###
+# Add safe(normal) user
+useradd -d /home/$safe_user_name -s /bin/bash -m $safe_user_name
+chpasswd $safe_user_name:$safe_user_passwd
+
+###
+# SSH-related
+cd /home/$safe_user_name
+ssh-keygen
+##TODO
 
 ###
 # Reboot
