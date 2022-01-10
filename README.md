@@ -10,9 +10,6 @@ Use root login, then run `wget -q -O - https://raw.githubusercontent.com/Ruofeng
 - ufw firewall  
   - default deny all
   - allow 22/tcp on ipv4 and v6  
-- Install docker community engine
+- Install docker community engine & docker-compose
 - An auto reboot  
 
-## TODO  
-Any help is needed!
-- ssh-keygen, echo the key file/or type in key

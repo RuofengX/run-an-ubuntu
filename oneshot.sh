@@ -38,6 +38,7 @@ ufw enable
 curl -fsSL https://get.docker.com | bash -s docker
 # If your instance is in China, use this mirror instead:
 # curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+pip3 install docker-compose
 
 ###
 # Add safe(normal) user
