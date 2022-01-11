@@ -26,6 +26,16 @@ ufw enable
 # If your instance is in China, use this mirror instead:
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 pip3 install docker-compose
+# Change docker source to fast mirror
+echo '{
+  "registry-mirrors": [
+    "https://hub-mirror.c.163.com",
+    "https://ustc-edu-cn.mirror.aliyuncs.com",
+    "https://ghcr.io",
+    "https://mirror.baidubce.com"
+  ]
+}' > /etc/docker/daemon.json
+systemctl restart docker
 
 ###
 # Swapfile
