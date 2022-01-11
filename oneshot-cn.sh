@@ -41,6 +41,8 @@ if test -z "$(swapon --show)"; then
     sysctl vm.swappiness=10
     sysctl vm.vfs_cache_pressure=50
 fi
+swapon --show
+
 ###
 # Reboot
 reboot
